@@ -1,0 +1,7 @@
+# Efinity のビルド生成物・作業ファイル
+outflow/
+work_*/
+ip/
+ooc/
+.lock
+*.bak
