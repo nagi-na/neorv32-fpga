@@ -1,0 +1,6 @@
+[submodule "external/neorv32"]
+	path = external/neorv32
+	url = https://github.com/stnolting/neorv32.git
+[submodule "external/neorv32-coremark"]
+	path = external/neorv32-coremark
+	url = https://github.com/stnolting/neorv32-coremark.git

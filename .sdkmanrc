@@ -1,0 +1,4 @@
+# Enable auto-env through the sdkman_auto_env config
+# Add key=value pairs of SDKs to use below
+# Efinity IP Manager treats Java 24+ stderr warnings as generation failure -> use Java 11
+java=11.0.32+1.1-tem

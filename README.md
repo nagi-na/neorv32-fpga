@@ -1,28 +1,59 @@
-# NEORV32 on Ti375N1156 開発キット
+# neorv32-fpga
 
-NEORV32 のテストセットアップ (UART ブートローダ版) を Efinix Ti375N1156 開発キットで動かすプロジェクト。
-NEORV32 本体は `../neorv32` を無改変で参照する (コピーしない)。
+NEORV32 を Efinix と AMD の FPGA に実装して比較するためのリポジトリ (卒業研究)。
+NEORV32 本体と CoreMark の移植版はサブモジュールとして `external/` に置き, 無改変で使う。
+
+## 復元手順 (別の PC で)
+
+```bash
+mkdir -p ~/fpga-softcpu && cd ~/fpga-softcpu
+git clone --recursive https://github.com/nagi-na/neorv32-fpga.git
+```
+
+- `--recursive` で `external/` のサブモジュールも取得される
+- `external/neorv32-coremark/neorv32` (NEORV32 v1.13.3) も一緒に取得されるが使わない。ビルドでは `NEORV32_HOME` で `external/neorv32` (v1.13.7) を指定する
+- 別途必要: Efinity 2026.1, xPack riscv-none-elf-gcc 15.2.0-1 (`~/tools`), Java 11 (SDKMAN, `.sdkmanrc`)
+
+## 構成
+
+| パス | 内容 |
+|---|---|
+| `external/neorv32/` | NEORV32 v1.13.7 (b1f307244928161a3fca1a010af11d5a736b5339) |
+| `external/neorv32-coremark/` | CoreMark の NEORV32 移植版 (e1553f10106faf3edfb34d86780b414782bc2aea), 中の `coremark/` は 1f483d5b |
+| `efinix/ti375/` | Efinity プロジェクト (Ti375N1156 開発キット) |
+| `amd/` | Vivado プロジェクト (未作成) |
+| `sw/upload.sh` | UART ブートローダへの書き込みスクリプト |
+| `docs/neorv32_ja/` | NEORV32 ドキュメントの日本語訳 (入門部分) |
+| `.sdkmanrc` | Java 11 の指定 (Efinity の IP Manager が Java 24 以降の警告で失敗するため) |
 
 ## 使用したもの
 
 | 項目 | バージョン |
 |---|---|
-| NEORV32 | v1.13.7 (b1f307244928161a3fca1a010af11d5a736b5339), `~/efinix_projects/neorv32` |
 | Efinity | 2026.1 |
 | デバイス | Ti375N1156, タイミングモデル C4 |
-| RISC-V GCC | xPack riscv-none-elf-gcc 15.2.0-1 (`~/tools`) |
+| RISC-V GCC | xPack riscv-none-elf-gcc 15.2.0-1 |
 
-## ファイル
+## efinix/ti375
+
+### ファイル
 
 | ファイル | 内容 |
 |---|---|
 | `neorv32_ti375.vhd` | トップ。`neorv32.neorv32_test_setup_bootloader` を呼び, ピンとつなぐ |
-| `neorv32_ti375.xml` | Efinity プロジェクト。NEORV32 の RTL 55 ファイルを `../neorv32/rtl/...` で参照 (ライブラリ `neorv32`) |
+| `neorv32_ti375.xml` | Efinity プロジェクト。NEORV32 の RTL 55 ファイルを `../../external/neorv32/rtl/...` で参照 (ライブラリ `neorv32`) |
 | `neorv32_ti375.peri.xml`, `package_settings.xml` | Interface Designer の設定 (ピン, PLL) |
 | `constraints.sdc` | タイミング制約 (`io_systemClk` 100MHz) |
-| `upload.sh` | UART ブートローダへの書き込みスクリプト |
 
-## 構成
+### Efinity の起動
+
+```bash
+cd ~/fpga-softcpu/neorv32-fpga   # Java 11 に切り替わる (java -version で確認)
+efx                              # Efinity の環境を読み込む
+efinity &
+```
+
+### 構成
 
 - CPU: rv32imc + Zicsr + Zicntr (テストセットアップの既定値)
 - IMEM 16KB (RAM), DMEM 8KB, GPIO 8 本, CLINT, UART0 (FIFO 1 段)
@@ -31,7 +62,7 @@ NEORV32 本体は `../neorv32` を無改変で参照する (コピーしない)�
 - UART: TX GPIOL_24, RX GPIOL_20 (FT4232H 経由で `/dev/ttyUSB2`, 番号は接続状況で変わる)
 - LED: `gpio(0..3)` → LED1〜4 (LED1 はブートローダの動作表示で点滅)
 
-## ビルド結果 (2026-10-27)
+### ビルド結果 (2026-10-27)
 
 | 項目 | 値 |
 |---|---|
@@ -43,14 +74,23 @@ NEORV32 本体は `../neorv32` を無改変で参照する (コピーしない)�
 
 ## プログラムの書き込みと実行
 
-ブートローダは 19200 baud。プログラムのビルドは NEORV32 のサンプルフォルダで `make clean_all exe`。
+ブートローダは 19200 baud。
 
-### 自動 (upload.sh)
+### ビルド
+
+```bash
+cd external/neorv32/sw/example/hello_world
+make clean_all exe
+```
+
+CoreMark は `external/neorv32-coremark` で `make NEORV32_HOME=../neorv32 clean_all exe` (IMEM/DMEM 64KB が必要)。
+
+### 自動 (sw/upload.sh)
 
 screen は閉じておく。SW3 を押してから 8 秒以内に:
 
 ```bash
-./upload.sh ~/efinix_projects/neorv32/sw/example/hello_world/neorv32_exe.bin
+sw/upload.sh <neorv32_exe.bin> [シリアルポート] [出力を表示する秒数]
 ```
 
 ### 手動 (screen)
