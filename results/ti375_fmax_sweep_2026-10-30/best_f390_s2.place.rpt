@@ -1,0 +1,42 @@
+
+Efinix FPGA Placement and Routing.
+Version: 2026.1.132 
+Date: Fri Oct 30 17:44:20 2026
+
+Copyright (C) 2013 - 2026 Efinix, Inc. All rights reserved.
+ 
+Family: Titanium 
+Device: Ti375N1156
+Top-level Entity Name: neorv32_ti375
+
+---------- Module Resource Usage Distribution Estimates (begin) ----------
+
+'Module Resource Usage Distribution Estimates' table printed in: outflow/neorv32_ti375.hier_util.rpt
+
+----------- Module Resource Usage Distribution Estimates (end) ----------
+
+Elapsed time for packing: 0 hours 0 minutes 1 seconds
+---------- Resource Summary (begin) ----------
+Inputs: 4 / 11701 (0.03%)
+Outputs: 5 / 13157 (0.04%)
+Global Clocks (GBUF): 1 / 32 (3.12%)
+Regional Clocks (RBUF): 0 / 64 (0.00%)
+	RBUF: Core: 0 / 48 (0.00%)
+	RBUF: Periphery: 0 / 8 (0.00%)
+	RBUF: Multi-Region: 0 / 8 (0.00%)
+XLRs: 7084 / 362880 (1.95%)
+	XLRs needed for LUT4: 3556 / 362880 (0.98%)
+	XLRs needed for LUT4 + FF: 1124 / 362880 (0.31%)
+	XLRs needed for COMB4: 0 / 362880 (0.00%)
+	XLRs needed for COMB4 + FF: 0 / 362880 (0.00%)
+	XLRs needed for Adder: 386 / 362880 (0.11%)
+	XLRs needed for Adder + FF: 23 / 362880 (0.01%)
+	XLRs needed for SRL8: 0 / 67200 (0.00%)
+	XLRs needed for SRL8 + FF: 0 / 67200 (0.00%)
+	XLRs needed for FF: 1363 / 362880 (0.38%)
+	XLRs needed for Routing: 632 / 362880 (0.17%)
+Memory Blocks: 28 / 2688 (1.04%)
+DSP Blocks: 0 / 1344 (0.00%)
+---------- Resource Summary (end) ----------
+
+Elapsed time for placement: 0 hours 0 minutes 15 seconds

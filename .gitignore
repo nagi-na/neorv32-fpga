@@ -5,3 +5,7 @@ ip/
 ooc/
 .lock
 *.bak
+
+# Fmax スイープの作業ディレクトリ
+results/*/base/
+results/*/runs/

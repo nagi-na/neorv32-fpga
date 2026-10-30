@@ -23,6 +23,7 @@ git clone --recursive https://github.com/nagi-na/neorv32-fpga.git
 | `efinix/ti375/` | Efinity プロジェクト (Ti375N1156 開発キット) |
 | `amd/` | Vivado プロジェクト (未作成) |
 | `sw/upload.sh` | UART ブートローダへの書き込みスクリプト |
+| `results/` | 実験結果 (`ti375_fmax_sweep_2026-10-30/`: Ti375 の Fmax スイープ) |
 | `docs/neorv32_ja/` | NEORV32 ドキュメントの日本語訳 (入門部分) |
 | `.sdkmanrc` | Java 11 の指定 (Efinity の IP Manager が Java 24 以降の警告で失敗するため) |
 

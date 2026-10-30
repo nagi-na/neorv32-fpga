@@ -1,0 +1,1494 @@
+
+Efinix Static Timing Analysis Report
+Version: 2026.1.132
+Date: Fri Oct 30 17:44:58 2026
+
+Copyright (C) 2013 - 2026 Efinix, Inc. All rights reserved.
+
+Top-level Entity Name: neorv32_ti375
+
+SDC Filename: constraints.sdc
+
+Timing Model: C4
+	process : typical
+	temperature : 0C to 85C
+	voltage : 0.95 +/-30mV
+	speedgrade : 4
+	technology : t16ff
+	status : final
+
+---------- Table of Contents (begin) ----------
+   1. Clock Frequency Summary
+   2. Clock Relationship Summary
+   3. Path Details for Max Critical Paths
+   4. Path Details for Min Critical Paths
+---------- Table of Contents (end) ------------
+
+---------- 1. Clock Frequency Summary (begin) ----------
+
+User target constrained clocks
+ Clock Name  Period (ns)  Frequency (MHz)   Waveform       Targets
+io_systemClk    2.564         390.016     {0.000 1.282} {io_systemClk}
+
+Maximum possible analyzed clocks frequency
+ Clock Name  Period (ns)  Frequency (MHz)     Edge
+io_systemClk    2.556        391.236         (R-R)
+
+Geomean max period: 2.556
+
+---------- Clock Frequency Summary (end) ---------------
+
+---------- 2. Clock Relationship Summary (begin) ----------
+
+Setup (Max) Clock Relationship
+  Launch Clock    Capture Clock   Constraint (ns)     Slack (ns)          Edge
+  io_systemClk     io_systemClk        2.564            0.008            (R-R)
+
+Hold (Min) Clock Relationship
+  Launch Clock    Capture Clock   Constraint (ns)     Slack (ns)          Edge
+  io_systemClk     io_systemClk        0.000            0.023            (R-R)
+
+NOTE: Values are in nanoseconds.
+
+---------- Clock Relationship Summary (end) ---------------
+
+---------- 3. Path Details for Max Critical Paths (begin) ----------
+
+################################################################################
+Path Detail Report (io_systemClk vs io_systemClk)
+################################################################################
+
+
+++++ Path 1 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Path Begin    : u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_control_inst/exc_buf[8]~FF|CLK
+Path End      : u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/rs1[1]~FF|D                       
+Launch Clock  : io_systemClk (RISE)                                                                                         
+Capture Clock : io_systemClk (RISE)                                                                                         
+Slack         : 0.008 (required time - arrival time)                                                                        
+Delay         : 2.454                                                                                                       
+
+Logic Level             : 7
+Non-global nets on path : 8
+Global nets on path     : 0
+
+Launch Clock Path Delay        : 2.063
++ Clock To Q + Data Path Delay : 2.570
+--------------------------------------
+End-of-path arrival time       : 4.633
+
+Constraint                     : 2.564
++ Capture Clock Path Delay     : 2.187
+- Clock Uncertainty            : 0.110
+--------------------------------------
+End-of-path required time      : 4.641
+
+Launch Clock Path
+                                                    name                                                      model name   delay (ns)  cumulative delay (ns) pins on net    location
+======================================================================================================================================================================================
+io_systemClk                                                                                                    input        0.000             0.000                0      (467,482)
+io_systemClk                                                                                                    input        0.110             0.110             2563      (467,482)
+io_systemClk                                                                                                    net          1.953             2.063             2563      (467,482)
+   Routing elements:
+      Manhattan distance of X:242, Y:387
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_control_inst/exc_buf[8]~FF|CLK    EFX_FF       0.000             2.063             2563      (225,95) 
+
+Data Path
+                                                   name                                                     model name   delay (ns)  cumulative delay (ns) pins on net    location
+====================================================================================================================================================================================
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_control_inst/exc_buf[8]~FF|Q   EFX_FF        0.113             0.113               5       (225,95) 
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_control_inst/exc_buf[8]        net           0.240             0.353               5       (225,95) 
+   Routing elements:
+      Manhattan distance of X:0, Y:5
+LUT__9119|in[3]                                                                                              EFX_LUT4      0.054             0.407               5       (225,100)
+LUT__9119|out                                                                                                EFX_LUT4      0.000             0.407               6       (225,100)
+n4834                                                                                                        net           0.138             0.545               6       (225,100)
+   Routing elements:
+      Manhattan distance of X:2, Y:0
+LUT__10383|in[0]                                                                                             EFX_LUT4      0.054             0.599               6       (227,100)
+LUT__10383|out                                                                                               EFX_LUT4      0.000             0.599               9       (227,100)
+n5710                                                                                                        net           0.364             0.963               9       (227,100)
+   Routing elements:
+      Manhattan distance of X:4, Y:35
+LUT__10386|in[3]                                                                                             EFX_LUT4      0.054             1.017               9       (231,135)
+LUT__10386|out                                                                                               EFX_LUT4      0.000             1.017             126       (231,135)
+n5713                                                                                                        net           0.277             1.294             126       (231,135)
+   Routing elements:
+      Manhattan distance of X:6, Y:1
+LUT__10387|in[2]                                                                                             EFX_LUT4      0.054             1.348             126       (225,134)
+LUT__10387|out                                                                                               EFX_LUT4      0.000             1.348              49       (225,134)
+n5714                                                                                                        net           0.367             1.715              49       (225,134)
+   Routing elements:
+      Manhattan distance of X:7, Y:35
+LUT__10799|in[3]                                                                                             EFX_LUT4      0.054             1.769              49       (218,169)
+LUT__10799|out                                                                                               EFX_LUT4      0.000             1.769               2       (218,169)
+n6062                                                                                                        net           0.177             1.946               2       (218,169)
+   Routing elements:
+      Manhattan distance of X:2, Y:0
+LUT__10802|in[0]                                                                                             EFX_LUT4      0.054             2.000               2       (216,169)
+LUT__10802|out                                                                                               EFX_LUT4      0.000             2.000               2       (216,169)
+n6065                                                                                                        net           0.512             2.512               2       (216,169)
+   Routing elements:
+      Manhattan distance of X:25, Y:63
+LUT__10823|in[2]                                                                                             EFX_LUT4      0.055             2.567               2       (241,106)
+LUT__10823|out                                                                                               EFX_LUT4      0.000             2.567               2       (241,106)
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_regfile_inst/n2199             net           0.000             2.567               2       (241,106)
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/rs1[1]~FF|D                        EFX_FF        0.003             2.570               2       (241,106)
+
+Capture Clock Path
+                                         name                                            model name   delay (ns)  cumulative delay (ns) pins on net    location
+=================================================================================================================================================================
+io_systemClk                                                                               input        0.000             0.000                0      (467,482)
+io_systemClk                                                                               input        0.110             0.110             2563      (467,482)
+io_systemClk                                                                               net          2.077             2.187             2563      (467,482)
+   Routing elements:
+      Manhattan distance of X:226, Y:376
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/rs1[1]~FF|CLK    EFX_FF       0.000             2.187             2563      (241,106)
+
+++++ Path 2 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Path Begin    : u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_control_inst/exc_buf[8]~FF|CLK
+Path End      : u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/rs1[24]~FF|D                      
+Launch Clock  : io_systemClk (RISE)                                                                                         
+Capture Clock : io_systemClk (RISE)                                                                                         
+Slack         : 0.010 (required time - arrival time)                                                                        
+Delay         : 2.452                                                                                                       
+
+Logic Level             : 7
+Non-global nets on path : 8
+Global nets on path     : 0
+
+Launch Clock Path Delay        : 2.063
++ Clock To Q + Data Path Delay : 2.568
+--------------------------------------
+End-of-path arrival time       : 4.631
+
+Constraint                     : 2.564
++ Capture Clock Path Delay     : 2.187
+- Clock Uncertainty            : 0.110
+--------------------------------------
+End-of-path required time      : 4.641
+
+Launch Clock Path
+                                                    name                                                      model name   delay (ns)  cumulative delay (ns) pins on net    location
+======================================================================================================================================================================================
+io_systemClk                                                                                                    input        0.000             0.000                0      (467,482)
+io_systemClk                                                                                                    input        0.110             0.110             2563      (467,482)
+io_systemClk                                                                                                    net          1.953             2.063             2563      (467,482)
+   Routing elements:
+      Manhattan distance of X:242, Y:387
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_control_inst/exc_buf[8]~FF|CLK    EFX_FF       0.000             2.063             2563      (225,95) 
+
+Data Path
+                                                   name                                                     model name   delay (ns)  cumulative delay (ns) pins on net    location
+====================================================================================================================================================================================
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_control_inst/exc_buf[8]~FF|Q   EFX_FF        0.113             0.113               5       (225,95) 
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_control_inst/exc_buf[8]        net           0.240             0.353               5       (225,95) 
+   Routing elements:
+      Manhattan distance of X:0, Y:5
+LUT__9119|in[3]                                                                                              EFX_LUT4      0.054             0.407               5       (225,100)
+LUT__9119|out                                                                                                EFX_LUT4      0.000             0.407               6       (225,100)
+n4834                                                                                                        net           0.138             0.545               6       (225,100)
+   Routing elements:
+      Manhattan distance of X:2, Y:0
+LUT__10383|in[0]                                                                                             EFX_LUT4      0.054             0.599               6       (227,100)
+LUT__10383|out                                                                                               EFX_LUT4      0.000             0.599               9       (227,100)
+n5710                                                                                                        net           0.365             0.964               9       (227,100)
+   Routing elements:
+      Manhattan distance of X:5, Y:39
+LUT__10413|in[3]                                                                                             EFX_LUT4      0.054             1.018               9       (222,139)
+LUT__10413|out                                                                                               EFX_LUT4      0.000             1.018             503       (222,139)
+n5725                                                                                                        net           0.569             1.587             503       (222,139)
+   Routing elements:
+      Manhattan distance of X:17, Y:40
+LUT__11397|in[2]                                                                                             EFX_LUT4      0.054             1.641             503       (239,179)
+LUT__11397|out                                                                                               EFX_LUT4      0.000             1.641               2       (239,179)
+n6637                                                                                                        net           0.189             1.830               2       (239,179)
+   Routing elements:
+      Manhattan distance of X:3, Y:1
+LUT__11398|in[0]                                                                                             EFX_LUT4      0.054             1.884               2       (236,178)
+LUT__11398|out                                                                                               EFX_LUT4      0.000             1.884               2       (236,178)
+n6638                                                                                                        net           0.151             2.035               2       (236,178)
+   Routing elements:
+      Manhattan distance of X:3, Y:0
+LUT__11399|in[3]                                                                                             EFX_LUT4      0.054             2.089               2       (233,178)
+LUT__11399|out                                                                                               EFX_LUT4      0.000             2.089               2       (233,178)
+n6639                                                                                                        net           0.422             2.511               2       (233,178)
+   Routing elements:
+      Manhattan distance of X:7, Y:50
+LUT__11400|in[2]                                                                                             EFX_LUT4      0.054             2.565               2       (240,128)
+LUT__11400|out                                                                                               EFX_LUT4      0.000             2.565               2       (240,128)
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_regfile_inst/n2176             net           0.000             2.565               2       (240,128)
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/rs1[24]~FF|D                       EFX_FF        0.003             2.568               2       (240,128)
+
+Capture Clock Path
+                                          name                                            model name   delay (ns)  cumulative delay (ns) pins on net    location
+==================================================================================================================================================================
+io_systemClk                                                                                input        0.000             0.000                0      (467,482)
+io_systemClk                                                                                input        0.110             0.110             2563      (467,482)
+io_systemClk                                                                                net          2.077             2.187             2563      (467,482)
+   Routing elements:
+      Manhattan distance of X:227, Y:354
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/rs1[24]~FF|CLK    EFX_FF       0.000             2.187             2563      (240,128)
+
+++++ Path 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Path Begin    : u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_frontend_inst/prefetch_buffer[1].ipb_inst/r_pnt[0]~FF|CLK
+Path End      : u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/ctrl.csr_addr[1]~FF|CE                                       
+Launch Clock  : io_systemClk (RISE)                                                                                                                    
+Capture Clock : io_systemClk (RISE)                                                                                                                    
+Slack         : 0.011 (required time - arrival time)                                                                                                   
+Delay         : 2.234                                                                                                                                  
+
+Logic Level             : 7
+Non-global nets on path : 8
+Global nets on path     : 0
+
+Launch Clock Path Delay        : 2.155
++ Clock To Q + Data Path Delay : 2.443
+--------------------------------------
+End-of-path arrival time       : 4.598
+
+Constraint                     : 2.564
++ Capture Clock Path Delay     : 2.155
+- Clock Uncertainty            : 0.110
+--------------------------------------
+End-of-path required time      : 4.609
+
+Launch Clock Path
+                                                                 name                                                                    model name   delay (ns)  cumulative delay (ns) pins on net    location
+=================================================================================================================================================================================================================
+io_systemClk                                                                                                                               input        0.000             0.000                0      (467,482)
+io_systemClk                                                                                                                               input        0.110             0.110             2563      (467,482)
+io_systemClk                                                                                                                               net          2.045             2.155             2563      (467,482)
+   Routing elements:
+      Manhattan distance of X:227, Y:421
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_frontend_inst/prefetch_buffer[1].ipb_inst/r_pnt[0]~FF|CLK    EFX_FF       0.000             2.155             2563      (240,61) 
+
+Data Path
+                                                                name                                                                   model name   delay (ns)  cumulative delay (ns) pins on net    location
+===============================================================================================================================================================================================================
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_frontend_inst/prefetch_buffer[1].ipb_inst/r_pnt[0]~FF|Q   EFX_FF        0.118             0.118              23        (240,61)
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_frontend_inst/prefetch_buffer[1].ipb_inst/r_pnt[0]        net           0.284             0.402              23        (240,61)
+   Routing elements:
+      Manhattan distance of X:6, Y:1
+LUT__9279|in[2]                                                                                                                         EFX_LUT4      0.054             0.456              23        (234,60)
+LUT__9279|out                                                                                                                           EFX_LUT4      0.000             0.456               3        (234,60)
+n4922                                                                                                                                   net           0.191             0.647               3        (234,60)
+   Routing elements:
+      Manhattan distance of X:0, Y:5
+LUT__9281|in[1]                                                                                                                         EFX_LUT4      0.054             0.701               3        (234,65)
+LUT__9281|out                                                                                                                           EFX_LUT4      0.000             0.701              10        (234,65)
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/frontend.i16[7]                                               net           0.277             0.978              10        (234,65)
+   Routing elements:
+      Manhattan distance of X:4, Y:2
+LUT__9282|in[3]                                                                                                                         EFX_LUT4      0.054             1.032              10        (230,67)
+LUT__9282|out                                                                                                                           EFX_LUT4      0.000             1.032               5        (230,67)
+n4924                                                                                                                                   net           0.204             1.236               5        (230,67)
+   Routing elements:
+      Manhattan distance of X:4, Y:10
+LUT__9283|in[1]                                                                                                                         EFX_LUT4      0.054             1.290               5        (234,77)
+LUT__9283|out                                                                                                                           EFX_LUT4      0.000             1.290               7        (234,77)
+n4925                                                                                                                                   net           0.122             1.412               7        (234,77)
+   Routing elements:
+      Manhattan distance of X:0, Y:2
+LUT__9323|in[1]                                                                                                                         EFX_LUT4      0.054             1.466               7        (234,75)
+LUT__9323|out                                                                                                                           EFX_LUT4      0.000             1.466               2        (234,75)
+n4957                                                                                                                                   net           0.085             1.551               2        (234,75)
+   Routing elements:
+      Manhattan distance of X:0, Y:1
+LUT__9325|in[1]                                                                                                                         EFX_LUT4      0.054             1.605               2        (234,74)
+LUT__9325|out                                                                                                                           EFX_LUT4      0.000             1.605               3        (234,74)
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/frontend.i32[5]                                               net           0.367             1.972               3        (234,74)
+   Routing elements:
+      Manhattan distance of X:7, Y:5
+LUT__9335|in[1]                                                                                                                         EFX_LUT4      0.055             2.027               3        (241,79)
+LUT__9335|out                                                                                                                           EFX_LUT4      0.000             2.027              13        (241,79)
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_control_inst/n7730                                        net           0.325             2.352              13        (241,79)
+   Routing elements:
+      Manhattan distance of X:1, Y:0
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/ctrl.csr_addr[1]~FF|CE                                        EFX_FF        0.091             2.443              13        (240,79)
+
+Capture Clock Path
+                                              name                                                 model name   delay (ns)  cumulative delay (ns) pins on net    location
+===========================================================================================================================================================================
+io_systemClk                                                                                         input        0.000             0.000                0      (467,482)
+io_systemClk                                                                                         input        0.110             0.110             2563      (467,482)
+io_systemClk                                                                                         net          2.045             2.155             2563      (467,482)
+   Routing elements:
+      Manhattan distance of X:227, Y:403
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/ctrl.csr_addr[1]~FF|CLK    EFX_FF       0.000             2.155             2563      (240,79) 
+
+++++ Path 4 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Path Begin    : u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_frontend_inst/prefetch_buffer[1].ipb_inst/r_pnt[0]~FF|CLK
+Path End      : u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/ctrl.csr_addr[5]~FF|CE                                       
+Launch Clock  : io_systemClk (RISE)                                                                                                                    
+Capture Clock : io_systemClk (RISE)                                                                                                                    
+Slack         : 0.012 (required time - arrival time)                                                                                                   
+Delay         : 2.233                                                                                                                                  
+
+Logic Level             : 7
+Non-global nets on path : 8
+Global nets on path     : 0
+
+Launch Clock Path Delay        : 2.155
++ Clock To Q + Data Path Delay : 2.442
+--------------------------------------
+End-of-path arrival time       : 4.597
+
+Constraint                     : 2.564
++ Capture Clock Path Delay     : 2.155
+- Clock Uncertainty            : 0.110
+--------------------------------------
+End-of-path required time      : 4.609
+
+Launch Clock Path
+                                                                 name                                                                    model name   delay (ns)  cumulative delay (ns) pins on net    location
+=================================================================================================================================================================================================================
+io_systemClk                                                                                                                               input        0.000             0.000                0      (467,482)
+io_systemClk                                                                                                                               input        0.110             0.110             2563      (467,482)
+io_systemClk                                                                                                                               net          2.045             2.155             2563      (467,482)
+   Routing elements:
+      Manhattan distance of X:227, Y:421
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_frontend_inst/prefetch_buffer[1].ipb_inst/r_pnt[0]~FF|CLK    EFX_FF       0.000             2.155             2563      (240,61) 
+
+Data Path
+                                                                name                                                                   model name   delay (ns)  cumulative delay (ns) pins on net    location
+===============================================================================================================================================================================================================
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_frontend_inst/prefetch_buffer[1].ipb_inst/r_pnt[0]~FF|Q   EFX_FF        0.118             0.118              23        (240,61)
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_frontend_inst/prefetch_buffer[1].ipb_inst/r_pnt[0]        net           0.284             0.402              23        (240,61)
+   Routing elements:
+      Manhattan distance of X:6, Y:1
+LUT__9279|in[2]                                                                                                                         EFX_LUT4      0.054             0.456              23        (234,60)
+LUT__9279|out                                                                                                                           EFX_LUT4      0.000             0.456               3        (234,60)
+n4922                                                                                                                                   net           0.191             0.647               3        (234,60)
+   Routing elements:
+      Manhattan distance of X:0, Y:5
+LUT__9281|in[1]                                                                                                                         EFX_LUT4      0.054             0.701               3        (234,65)
+LUT__9281|out                                                                                                                           EFX_LUT4      0.000             0.701              10        (234,65)
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/frontend.i16[7]                                               net           0.277             0.978              10        (234,65)
+   Routing elements:
+      Manhattan distance of X:4, Y:2
+LUT__9282|in[3]                                                                                                                         EFX_LUT4      0.054             1.032              10        (230,67)
+LUT__9282|out                                                                                                                           EFX_LUT4      0.000             1.032               5        (230,67)
+n4924                                                                                                                                   net           0.204             1.236               5        (230,67)
+   Routing elements:
+      Manhattan distance of X:4, Y:10
+LUT__9283|in[1]                                                                                                                         EFX_LUT4      0.054             1.290               5        (234,77)
+LUT__9283|out                                                                                                                           EFX_LUT4      0.000             1.290               7        (234,77)
+n4925                                                                                                                                   net           0.122             1.412               7        (234,77)
+   Routing elements:
+      Manhattan distance of X:0, Y:2
+LUT__9323|in[1]                                                                                                                         EFX_LUT4      0.054             1.466               7        (234,75)
+LUT__9323|out                                                                                                                           EFX_LUT4      0.000             1.466               2        (234,75)
+n4957                                                                                                                                   net           0.085             1.551               2        (234,75)
+   Routing elements:
+      Manhattan distance of X:0, Y:1
+LUT__9325|in[1]                                                                                                                         EFX_LUT4      0.054             1.605               2        (234,74)
+LUT__9325|out                                                                                                                           EFX_LUT4      0.000             1.605               3        (234,74)
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/frontend.i32[5]                                               net           0.367             1.972               3        (234,74)
+   Routing elements:
+      Manhattan distance of X:7, Y:5
+LUT__9335|in[1]                                                                                                                         EFX_LUT4      0.055             2.027               3        (241,79)
+LUT__9335|out                                                                                                                           EFX_LUT4      0.000             2.027              13        (241,79)
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_control_inst/n7730                                        net           0.324             2.351              13        (241,79)
+   Routing elements:
+      Manhattan distance of X:1, Y:6
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/ctrl.csr_addr[5]~FF|CE                                        EFX_FF        0.091             2.442              13        (240,73)
+
+Capture Clock Path
+                                              name                                                 model name   delay (ns)  cumulative delay (ns) pins on net    location
+===========================================================================================================================================================================
+io_systemClk                                                                                         input        0.000             0.000                0      (467,482)
+io_systemClk                                                                                         input        0.110             0.110             2563      (467,482)
+io_systemClk                                                                                         net          2.045             2.155             2563      (467,482)
+   Routing elements:
+      Manhattan distance of X:227, Y:409
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/ctrl.csr_addr[5]~FF|CLK    EFX_FF       0.000             2.155             2563      (240,73) 
+
+++++ Path 5 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Path Begin    : u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_frontend_inst/prefetch_buffer[1].ipb_inst/r_pnt[0]~FF|CLK
+Path End      : u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/ctrl.csr_addr[8]~FF|CE                                       
+Launch Clock  : io_systemClk (RISE)                                                                                                                    
+Capture Clock : io_systemClk (RISE)                                                                                                                    
+Slack         : 0.014 (required time - arrival time)                                                                                                   
+Delay         : 2.231                                                                                                                                  
+
+Logic Level             : 7
+Non-global nets on path : 8
+Global nets on path     : 0
+
+Launch Clock Path Delay        : 2.155
++ Clock To Q + Data Path Delay : 2.440
+--------------------------------------
+End-of-path arrival time       : 4.595
+
+Constraint                     : 2.564
++ Capture Clock Path Delay     : 2.155
+- Clock Uncertainty            : 0.110
+--------------------------------------
+End-of-path required time      : 4.609
+
+Launch Clock Path
+                                                                 name                                                                    model name   delay (ns)  cumulative delay (ns) pins on net    location
+=================================================================================================================================================================================================================
+io_systemClk                                                                                                                               input        0.000             0.000                0      (467,482)
+io_systemClk                                                                                                                               input        0.110             0.110             2563      (467,482)
+io_systemClk                                                                                                                               net          2.045             2.155             2563      (467,482)
+   Routing elements:
+      Manhattan distance of X:227, Y:421
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_frontend_inst/prefetch_buffer[1].ipb_inst/r_pnt[0]~FF|CLK    EFX_FF       0.000             2.155             2563      (240,61) 
+
+Data Path
+                                                                name                                                                   model name   delay (ns)  cumulative delay (ns) pins on net    location
+===============================================================================================================================================================================================================
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_frontend_inst/prefetch_buffer[1].ipb_inst/r_pnt[0]~FF|Q   EFX_FF        0.118             0.118              23        (240,61)
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_frontend_inst/prefetch_buffer[1].ipb_inst/r_pnt[0]        net           0.284             0.402              23        (240,61)
+   Routing elements:
+      Manhattan distance of X:6, Y:1
+LUT__9279|in[2]                                                                                                                         EFX_LUT4      0.054             0.456              23        (234,60)
+LUT__9279|out                                                                                                                           EFX_LUT4      0.000             0.456               3        (234,60)
+n4922                                                                                                                                   net           0.191             0.647               3        (234,60)
+   Routing elements:
+      Manhattan distance of X:0, Y:5
+LUT__9281|in[1]                                                                                                                         EFX_LUT4      0.054             0.701               3        (234,65)
+LUT__9281|out                                                                                                                           EFX_LUT4      0.000             0.701              10        (234,65)
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/frontend.i16[7]                                               net           0.277             0.978              10        (234,65)
+   Routing elements:
+      Manhattan distance of X:4, Y:2
+LUT__9282|in[3]                                                                                                                         EFX_LUT4      0.054             1.032              10        (230,67)
+LUT__9282|out                                                                                                                           EFX_LUT4      0.000             1.032               5        (230,67)
+n4924                                                                                                                                   net           0.204             1.236               5        (230,67)
+   Routing elements:
+      Manhattan distance of X:4, Y:10
+LUT__9283|in[1]                                                                                                                         EFX_LUT4      0.054             1.290               5        (234,77)
+LUT__9283|out                                                                                                                           EFX_LUT4      0.000             1.290               7        (234,77)
+n4925                                                                                                                                   net           0.122             1.412               7        (234,77)
+   Routing elements:
+      Manhattan distance of X:0, Y:2
+LUT__9323|in[1]                                                                                                                         EFX_LUT4      0.054             1.466               7        (234,75)
+LUT__9323|out                                                                                                                           EFX_LUT4      0.000             1.466               2        (234,75)
+n4957                                                                                                                                   net           0.085             1.551               2        (234,75)
+   Routing elements:
+      Manhattan distance of X:0, Y:1
+LUT__9325|in[1]                                                                                                                         EFX_LUT4      0.054             1.605               2        (234,74)
+LUT__9325|out                                                                                                                           EFX_LUT4      0.000             1.605               3        (234,74)
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/frontend.i32[5]                                               net           0.367             1.972               3        (234,74)
+   Routing elements:
+      Manhattan distance of X:7, Y:5
+LUT__9335|in[1]                                                                                                                         EFX_LUT4      0.055             2.027               3        (241,79)
+LUT__9335|out                                                                                                                           EFX_LUT4      0.000             2.027              13        (241,79)
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_control_inst/n7730                                        net           0.322             2.349              13        (241,79)
+   Routing elements:
+      Manhattan distance of X:1, Y:5
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/ctrl.csr_addr[8]~FF|CE                                        EFX_FF        0.091             2.440              13        (240,74)
+
+Capture Clock Path
+                                              name                                                 model name   delay (ns)  cumulative delay (ns) pins on net    location
+===========================================================================================================================================================================
+io_systemClk                                                                                         input        0.000             0.000                0      (467,482)
+io_systemClk                                                                                         input        0.110             0.110             2563      (467,482)
+io_systemClk                                                                                         net          2.045             2.155             2563      (467,482)
+   Routing elements:
+      Manhattan distance of X:227, Y:408
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/ctrl.csr_addr[8]~FF|CLK    EFX_FF       0.000             2.155             2563      (240,74) 
+
+++++ Path 6 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Path Begin    : u_neorv32/neorv32_top_inst/memory_system.imem_enabled.imem_inst/imem_ram.imem_ram_gen[2].imem_ram_inst/memory_large.spram__D$c1|RCLK
+Path End      : u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/lsu_rdata[17]~FF|D                                        
+Launch Clock  : io_systemClk (RISE)                                                                                                                 
+Capture Clock : io_systemClk (RISE)                                                                                                                 
+Slack         : 0.014 (required time - arrival time)                                                                                                
+Delay         : 1.659                                                                                                                               
+
+Logic Level             : 7
+Non-global nets on path : 8
+Global nets on path     : 0
+
+Launch Clock Path Delay        : 2.063
++ Clock To Q + Data Path Delay : 2.850
+--------------------------------------
+End-of-path arrival time       : 4.913
+
+Constraint                     : 2.564
++ Capture Clock Path Delay     : 2.473
+- Clock Uncertainty            : 0.110
+--------------------------------------
+End-of-path required time      : 4.927
+
+Launch Clock Path
+                                                                name                                                                  model name   delay (ns)  cumulative delay (ns) pins on net    location
+==============================================================================================================================================================================================================
+io_systemClk                                                                                                                          input          0.000             0.000                0      (467,482)
+io_systemClk                                                                                                                          input          0.110             0.110             2563      (467,482)
+io_systemClk                                                                                                                          net            1.953             2.063             2563      (467,482)
+   Routing elements:
+      Manhattan distance of X:241, Y:419
+u_neorv32/neorv32_top_inst/memory_system.imem_enabled.imem_inst/imem_ram.imem_ram_gen[2].imem_ram_inst/memory_large.spram__D$c1|RCLK  EFX_RAM10      0.000             2.063             2563      (226,63) 
+
+Data Path
+                                                                  name                                                                    model name   delay (ns)  cumulative delay (ns) pins on net    location
+==================================================================================================================================================================================================================
+u_neorv32/neorv32_top_inst/memory_system.imem_enabled.imem_inst/imem_ram.imem_ram_gen[2].imem_ram_inst/memory_large.spram__D$c1|RDATA[1]  EFX_RAM10      1.188             1.188               2        (226,63)
+u_neorv32/neorv32_top_inst/memory_system.imem_enabled.imem_inst/rdata[23]                                                                 net            0.393             1.581               2        (226,63)
+   Routing elements:
+      Manhattan distance of X:10, Y:12
+LUT__12905|in[0]                                                                                                                          EFX_LUT4       0.054             1.635               2        (236,51)
+LUT__12905|out                                                                                                                            EFX_LUT4       0.000             1.635               2        (236,51)
+n7714                                                                                                                                     net            0.105             1.740               2        (236,51)
+   Routing elements:
+      Manhattan distance of X:2, Y:0
+LUT__12906|in[2]                                                                                                                          EFX_LUT4       0.054             1.794               2        (234,51)
+LUT__12906|out                                                                                                                            EFX_LUT4       0.000             1.794               5        (234,51)
+u_neorv32/neorv32_top_inst/sys3_rsp.data[23]                                                                                              net            0.243             2.037               5        (234,51)
+   Routing elements:
+      Manhattan distance of X:3, Y:3
+LUT__13049|in[0]                                                                                                                          EFX_LUT4       0.054             2.091               5        (237,54)
+LUT__13049|out                                                                                                                            EFX_LUT4       0.000             2.091               3        (237,54)
+n7783                                                                                                                                     net            0.053             2.144               3        (237,54)
+   Routing elements:
+      Manhattan distance of X:0, Y:1
+LUT__13051|in[1]                                                                                                                          EFX_LUT4       0.054             2.198               3        (237,53)
+LUT__13051|out                                                                                                                            EFX_LUT4       0.000             2.198               3        (237,53)
+n7785                                                                                                                                     net            0.053             2.251               3        (237,53)
+   Routing elements:
+      Manhattan distance of X:0, Y:1
+LUT__13054|in[1]                                                                                                                          EFX_LUT4       0.054             2.305               3        (237,52)
+LUT__13054|out                                                                                                                            EFX_LUT4       0.000             2.305              10        (237,52)
+n7787                                                                                                                                     net            0.291             2.596              10        (237,52)
+   Routing elements:
+      Manhattan distance of X:8, Y:4
+LUT__13071|in[2]                                                                                                                          EFX_LUT4       0.054             2.650              10        (245,56)
+LUT__13071|out                                                                                                                            EFX_LUT4       0.000             2.650              17        (245,56)
+n7796                                                                                                                                     net            0.143             2.793              17        (245,56)
+   Routing elements:
+      Manhattan distance of X:0, Y:5
+LUT__13073|in[2]                                                                                                                          EFX_LUT4       0.054             2.847              17        (245,61)
+LUT__13073|out                                                                                                                            EFX_LUT4       0.000             2.847               2        (245,61)
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_lsu_inst/n426                                               net            0.000             2.847               2        (245,61)
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/lsu_rdata[17]~FF|D                                              EFX_FF         0.003             2.850               2        (245,61)
+
+Capture Clock Path
+                                             name                                               model name   delay (ns)  cumulative delay (ns) pins on net    location
+========================================================================================================================================================================
+io_systemClk                                                                                      input        0.000             0.000                0      (467,482)
+io_systemClk                                                                                      input        0.110             0.110             2563      (467,482)
+io_systemClk                                                                                      net          2.363             2.473             2563      (467,482)
+   Routing elements:
+      Manhattan distance of X:222, Y:421
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/lsu_rdata[17]~FF|CLK    EFX_FF       0.000             2.473             2563      (245,61) 
+
+++++ Path 7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Path Begin    : u_neorv32/neorv32_top_inst/memory_system.imem_enabled.imem_inst/imem_ram.imem_ram_gen[2].imem_ram_inst/memory_large.spram__D$c1|RCLK
+Path End      : u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/lsu_rdata[24]~FF|D                                        
+Launch Clock  : io_systemClk (RISE)                                                                                                                 
+Capture Clock : io_systemClk (RISE)                                                                                                                 
+Slack         : 0.018 (required time - arrival time)                                                                                                
+Delay         : 1.655                                                                                                                               
+
+Logic Level             : 7
+Non-global nets on path : 8
+Global nets on path     : 0
+
+Launch Clock Path Delay        : 2.063
++ Clock To Q + Data Path Delay : 2.846
+--------------------------------------
+End-of-path arrival time       : 4.909
+
+Constraint                     : 2.564
++ Capture Clock Path Delay     : 2.473
+- Clock Uncertainty            : 0.110
+--------------------------------------
+End-of-path required time      : 4.927
+
+Launch Clock Path
+                                                                name                                                                  model name   delay (ns)  cumulative delay (ns) pins on net    location
+==============================================================================================================================================================================================================
+io_systemClk                                                                                                                          input          0.000             0.000                0      (467,482)
+io_systemClk                                                                                                                          input          0.110             0.110             2563      (467,482)
+io_systemClk                                                                                                                          net            1.953             2.063             2563      (467,482)
+   Routing elements:
+      Manhattan distance of X:241, Y:419
+u_neorv32/neorv32_top_inst/memory_system.imem_enabled.imem_inst/imem_ram.imem_ram_gen[2].imem_ram_inst/memory_large.spram__D$c1|RCLK  EFX_RAM10      0.000             2.063             2563      (226,63) 
+
+Data Path
+                                                                  name                                                                    model name   delay (ns)  cumulative delay (ns) pins on net    location
+==================================================================================================================================================================================================================
+u_neorv32/neorv32_top_inst/memory_system.imem_enabled.imem_inst/imem_ram.imem_ram_gen[2].imem_ram_inst/memory_large.spram__D$c1|RDATA[1]  EFX_RAM10      1.188             1.188               2        (226,63)
+u_neorv32/neorv32_top_inst/memory_system.imem_enabled.imem_inst/rdata[23]                                                                 net            0.393             1.581               2        (226,63)
+   Routing elements:
+      Manhattan distance of X:10, Y:12
+LUT__12905|in[0]                                                                                                                          EFX_LUT4       0.054             1.635               2        (236,51)
+LUT__12905|out                                                                                                                            EFX_LUT4       0.000             1.635               2        (236,51)
+n7714                                                                                                                                     net            0.105             1.740               2        (236,51)
+   Routing elements:
+      Manhattan distance of X:2, Y:0
+LUT__12906|in[2]                                                                                                                          EFX_LUT4       0.054             1.794               2        (234,51)
+LUT__12906|out                                                                                                                            EFX_LUT4       0.000             1.794               5        (234,51)
+u_neorv32/neorv32_top_inst/sys3_rsp.data[23]                                                                                              net            0.243             2.037               5        (234,51)
+   Routing elements:
+      Manhattan distance of X:3, Y:3
+LUT__13049|in[0]                                                                                                                          EFX_LUT4       0.054             2.091               5        (237,54)
+LUT__13049|out                                                                                                                            EFX_LUT4       0.000             2.091               3        (237,54)
+n7783                                                                                                                                     net            0.053             2.144               3        (237,54)
+   Routing elements:
+      Manhattan distance of X:0, Y:1
+LUT__13051|in[1]                                                                                                                          EFX_LUT4       0.054             2.198               3        (237,53)
+LUT__13051|out                                                                                                                            EFX_LUT4       0.000             2.198               3        (237,53)
+n7785                                                                                                                                     net            0.053             2.251               3        (237,53)
+   Routing elements:
+      Manhattan distance of X:0, Y:1
+LUT__13054|in[1]                                                                                                                          EFX_LUT4       0.054             2.305               3        (237,52)
+LUT__13054|out                                                                                                                            EFX_LUT4       0.000             2.305              10        (237,52)
+n7787                                                                                                                                     net            0.291             2.596              10        (237,52)
+   Routing elements:
+      Manhattan distance of X:8, Y:4
+LUT__13071|in[2]                                                                                                                          EFX_LUT4       0.054             2.650              10        (245,56)
+LUT__13071|out                                                                                                                            EFX_LUT4       0.000             2.650              17        (245,56)
+n7796                                                                                                                                     net            0.139             2.789              17        (245,56)
+   Routing elements:
+      Manhattan distance of X:0, Y:6
+LUT__13080|in[2]                                                                                                                          EFX_LUT4       0.054             2.843              17        (245,50)
+LUT__13080|out                                                                                                                            EFX_LUT4       0.000             2.843               2        (245,50)
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_lsu_inst/n419                                               net            0.000             2.843               2        (245,50)
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/lsu_rdata[24]~FF|D                                              EFX_FF         0.003             2.846               2        (245,50)
+
+Capture Clock Path
+                                             name                                               model name   delay (ns)  cumulative delay (ns) pins on net    location
+========================================================================================================================================================================
+io_systemClk                                                                                      input        0.000             0.000                0      (467,482)
+io_systemClk                                                                                      input        0.110             0.110             2563      (467,482)
+io_systemClk                                                                                      net          2.363             2.473             2563      (467,482)
+   Routing elements:
+      Manhattan distance of X:222, Y:432
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/lsu_rdata[24]~FF|CLK    EFX_FF       0.000             2.473             2563      (245,50) 
+
+++++ Path 8 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Path Begin    : u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_frontend_inst/prefetch_buffer[1].ipb_inst/r_pnt[0]~FF|CLK
+Path End      : u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/ctrl.csr_addr[1]~FF|CE                                       
+Launch Clock  : io_systemClk (RISE)                                                                                                                    
+Capture Clock : io_systemClk (RISE)                                                                                                                    
+Slack         : 0.025 (required time - arrival time)                                                                                                   
+Delay         : 2.220                                                                                                                                  
+
+Logic Level             : 6
+Non-global nets on path : 7
+Global nets on path     : 0
+
+Launch Clock Path Delay        : 2.155
++ Clock To Q + Data Path Delay : 2.429
+--------------------------------------
+End-of-path arrival time       : 4.584
+
+Constraint                     : 2.564
++ Capture Clock Path Delay     : 2.155
+- Clock Uncertainty            : 0.110
+--------------------------------------
+End-of-path required time      : 4.609
+
+Launch Clock Path
+                                                                 name                                                                    model name   delay (ns)  cumulative delay (ns) pins on net    location
+=================================================================================================================================================================================================================
+io_systemClk                                                                                                                               input        0.000             0.000                0      (467,482)
+io_systemClk                                                                                                                               input        0.110             0.110             2563      (467,482)
+io_systemClk                                                                                                                               net          2.045             2.155             2563      (467,482)
+   Routing elements:
+      Manhattan distance of X:227, Y:421
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_frontend_inst/prefetch_buffer[1].ipb_inst/r_pnt[0]~FF|CLK    EFX_FF       0.000             2.155             2563      (240,61) 
+
+Data Path
+                                                                name                                                                   model name   delay (ns)  cumulative delay (ns) pins on net    location
+===============================================================================================================================================================================================================
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_frontend_inst/prefetch_buffer[1].ipb_inst/r_pnt[0]~FF|Q   EFX_FF        0.118             0.118              23        (240,61)
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_frontend_inst/prefetch_buffer[1].ipb_inst/r_pnt[0]        net           0.466             0.584              23        (240,61)
+   Routing elements:
+      Manhattan distance of X:17, Y:4
+LUT__9290|in[2]                                                                                                                         EFX_LUT4      0.055             0.639              23        (223,57)
+LUT__9290|out                                                                                                                           EFX_LUT4      0.000             0.639               3        (223,57)
+n4931                                                                                                                                   net           0.256             0.895               3        (223,57)
+   Routing elements:
+      Manhattan distance of X:1, Y:11
+LUT__9292|in[1]                                                                                                                         EFX_LUT4      0.054             0.949               3        (224,68)
+LUT__9292|out                                                                                                                           EFX_LUT4      0.000             0.949               9        (224,68)
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/frontend.i16[4]                                               net           0.300             1.249               9        (224,68)
+   Routing elements:
+      Manhattan distance of X:0, Y:7
+LUT__9303|in[0]                                                                                                                         EFX_LUT4      0.054             1.303               9        (224,75)
+LUT__9303|out                                                                                                                           EFX_LUT4      0.000             1.303               7        (224,75)
+n4940                                                                                                                                   net           0.168             1.471               7        (224,75)
+   Routing elements:
+      Manhattan distance of X:4, Y:1
+LUT__9317|in[3]                                                                                                                         EFX_LUT4      0.054             1.525               7        (228,74)
+LUT__9317|out                                                                                                                           EFX_LUT4      0.000             1.525               2        (228,74)
+n4952                                                                                                                                   net           0.218             1.743               2        (228,74)
+   Routing elements:
+      Manhattan distance of X:6, Y:5
+LUT__9320|in[1]                                                                                                                         EFX_LUT4      0.054             1.797               2        (234,79)
+LUT__9320|out                                                                                                                           EFX_LUT4      0.000             1.797               3        (234,79)
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/frontend.i32[2]                                               net           0.161             1.958               3        (234,79)
+   Routing elements:
+      Manhattan distance of X:7, Y:0
+LUT__9335|in[0]                                                                                                                         EFX_LUT4      0.055             2.013               3        (241,79)
+LUT__9335|out                                                                                                                           EFX_LUT4      0.000             2.013              13        (241,79)
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_control_inst/n7730                                        net           0.325             2.338              13        (241,79)
+   Routing elements:
+      Manhattan distance of X:1, Y:0
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/ctrl.csr_addr[1]~FF|CE                                        EFX_FF        0.091             2.429              13        (240,79)
+
+Capture Clock Path
+                                              name                                                 model name   delay (ns)  cumulative delay (ns) pins on net    location
+===========================================================================================================================================================================
+io_systemClk                                                                                         input        0.000             0.000                0      (467,482)
+io_systemClk                                                                                         input        0.110             0.110             2563      (467,482)
+io_systemClk                                                                                         net          2.045             2.155             2563      (467,482)
+   Routing elements:
+      Manhattan distance of X:227, Y:403
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/ctrl.csr_addr[1]~FF|CLK    EFX_FF       0.000             2.155             2563      (240,79) 
+
+++++ Path 9 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Path Begin    : u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_frontend_inst/prefetch_buffer[1].ipb_inst/r_pnt[0]~FF|CLK
+Path End      : u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/ctrl.csr_addr[5]~FF|CE                                       
+Launch Clock  : io_systemClk (RISE)                                                                                                                    
+Capture Clock : io_systemClk (RISE)                                                                                                                    
+Slack         : 0.026 (required time - arrival time)                                                                                                   
+Delay         : 2.219                                                                                                                                  
+
+Logic Level             : 6
+Non-global nets on path : 7
+Global nets on path     : 0
+
+Launch Clock Path Delay        : 2.155
++ Clock To Q + Data Path Delay : 2.428
+--------------------------------------
+End-of-path arrival time       : 4.583
+
+Constraint                     : 2.564
++ Capture Clock Path Delay     : 2.155
+- Clock Uncertainty            : 0.110
+--------------------------------------
+End-of-path required time      : 4.609
+
+Launch Clock Path
+                                                                 name                                                                    model name   delay (ns)  cumulative delay (ns) pins on net    location
+=================================================================================================================================================================================================================
+io_systemClk                                                                                                                               input        0.000             0.000                0      (467,482)
+io_systemClk                                                                                                                               input        0.110             0.110             2563      (467,482)
+io_systemClk                                                                                                                               net          2.045             2.155             2563      (467,482)
+   Routing elements:
+      Manhattan distance of X:227, Y:421
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_frontend_inst/prefetch_buffer[1].ipb_inst/r_pnt[0]~FF|CLK    EFX_FF       0.000             2.155             2563      (240,61) 
+
+Data Path
+                                                                name                                                                   model name   delay (ns)  cumulative delay (ns) pins on net    location
+===============================================================================================================================================================================================================
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_frontend_inst/prefetch_buffer[1].ipb_inst/r_pnt[0]~FF|Q   EFX_FF        0.118             0.118              23        (240,61)
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_frontend_inst/prefetch_buffer[1].ipb_inst/r_pnt[0]        net           0.466             0.584              23        (240,61)
+   Routing elements:
+      Manhattan distance of X:17, Y:4
+LUT__9290|in[2]                                                                                                                         EFX_LUT4      0.055             0.639              23        (223,57)
+LUT__9290|out                                                                                                                           EFX_LUT4      0.000             0.639               3        (223,57)
+n4931                                                                                                                                   net           0.256             0.895               3        (223,57)
+   Routing elements:
+      Manhattan distance of X:1, Y:11
+LUT__9292|in[1]                                                                                                                         EFX_LUT4      0.054             0.949               3        (224,68)
+LUT__9292|out                                                                                                                           EFX_LUT4      0.000             0.949               9        (224,68)
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/frontend.i16[4]                                               net           0.300             1.249               9        (224,68)
+   Routing elements:
+      Manhattan distance of X:0, Y:7
+LUT__9303|in[0]                                                                                                                         EFX_LUT4      0.054             1.303               9        (224,75)
+LUT__9303|out                                                                                                                           EFX_LUT4      0.000             1.303               7        (224,75)
+n4940                                                                                                                                   net           0.168             1.471               7        (224,75)
+   Routing elements:
+      Manhattan distance of X:4, Y:1
+LUT__9317|in[3]                                                                                                                         EFX_LUT4      0.054             1.525               7        (228,74)
+LUT__9317|out                                                                                                                           EFX_LUT4      0.000             1.525               2        (228,74)
+n4952                                                                                                                                   net           0.218             1.743               2        (228,74)
+   Routing elements:
+      Manhattan distance of X:6, Y:5
+LUT__9320|in[1]                                                                                                                         EFX_LUT4      0.054             1.797               2        (234,79)
+LUT__9320|out                                                                                                                           EFX_LUT4      0.000             1.797               3        (234,79)
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/frontend.i32[2]                                               net           0.161             1.958               3        (234,79)
+   Routing elements:
+      Manhattan distance of X:7, Y:0
+LUT__9335|in[0]                                                                                                                         EFX_LUT4      0.055             2.013               3        (241,79)
+LUT__9335|out                                                                                                                           EFX_LUT4      0.000             2.013              13        (241,79)
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_control_inst/n7730                                        net           0.324             2.337              13        (241,79)
+   Routing elements:
+      Manhattan distance of X:1, Y:6
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/ctrl.csr_addr[5]~FF|CE                                        EFX_FF        0.091             2.428              13        (240,73)
+
+Capture Clock Path
+                                              name                                                 model name   delay (ns)  cumulative delay (ns) pins on net    location
+===========================================================================================================================================================================
+io_systemClk                                                                                         input        0.000             0.000                0      (467,482)
+io_systemClk                                                                                         input        0.110             0.110             2563      (467,482)
+io_systemClk                                                                                         net          2.045             2.155             2563      (467,482)
+   Routing elements:
+      Manhattan distance of X:227, Y:409
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/ctrl.csr_addr[5]~FF|CLK    EFX_FF       0.000             2.155             2563      (240,73) 
+
+++++ Path 10 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Path Begin    : u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_frontend_inst/prefetch_buffer[1].ipb_inst/r_pnt[0]~FF|CLK
+Path End      : u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/ctrl.csr_addr[8]~FF|CE                                       
+Launch Clock  : io_systemClk (RISE)                                                                                                                    
+Capture Clock : io_systemClk (RISE)                                                                                                                    
+Slack         : 0.028 (required time - arrival time)                                                                                                   
+Delay         : 2.217                                                                                                                                  
+
+Logic Level             : 6
+Non-global nets on path : 7
+Global nets on path     : 0
+
+Launch Clock Path Delay        : 2.155
++ Clock To Q + Data Path Delay : 2.426
+--------------------------------------
+End-of-path arrival time       : 4.581
+
+Constraint                     : 2.564
++ Capture Clock Path Delay     : 2.155
+- Clock Uncertainty            : 0.110
+--------------------------------------
+End-of-path required time      : 4.609
+
+Launch Clock Path
+                                                                 name                                                                    model name   delay (ns)  cumulative delay (ns) pins on net    location
+=================================================================================================================================================================================================================
+io_systemClk                                                                                                                               input        0.000             0.000                0      (467,482)
+io_systemClk                                                                                                                               input        0.110             0.110             2563      (467,482)
+io_systemClk                                                                                                                               net          2.045             2.155             2563      (467,482)
+   Routing elements:
+      Manhattan distance of X:227, Y:421
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_frontend_inst/prefetch_buffer[1].ipb_inst/r_pnt[0]~FF|CLK    EFX_FF       0.000             2.155             2563      (240,61) 
+
+Data Path
+                                                                name                                                                   model name   delay (ns)  cumulative delay (ns) pins on net    location
+===============================================================================================================================================================================================================
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_frontend_inst/prefetch_buffer[1].ipb_inst/r_pnt[0]~FF|Q   EFX_FF        0.118             0.118              23        (240,61)
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_frontend_inst/prefetch_buffer[1].ipb_inst/r_pnt[0]        net           0.466             0.584              23        (240,61)
+   Routing elements:
+      Manhattan distance of X:17, Y:4
+LUT__9290|in[2]                                                                                                                         EFX_LUT4      0.055             0.639              23        (223,57)
+LUT__9290|out                                                                                                                           EFX_LUT4      0.000             0.639               3        (223,57)
+n4931                                                                                                                                   net           0.256             0.895               3        (223,57)
+   Routing elements:
+      Manhattan distance of X:1, Y:11
+LUT__9292|in[1]                                                                                                                         EFX_LUT4      0.054             0.949               3        (224,68)
+LUT__9292|out                                                                                                                           EFX_LUT4      0.000             0.949               9        (224,68)
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/frontend.i16[4]                                               net           0.300             1.249               9        (224,68)
+   Routing elements:
+      Manhattan distance of X:0, Y:7
+LUT__9303|in[0]                                                                                                                         EFX_LUT4      0.054             1.303               9        (224,75)
+LUT__9303|out                                                                                                                           EFX_LUT4      0.000             1.303               7        (224,75)
+n4940                                                                                                                                   net           0.168             1.471               7        (224,75)
+   Routing elements:
+      Manhattan distance of X:4, Y:1
+LUT__9317|in[3]                                                                                                                         EFX_LUT4      0.054             1.525               7        (228,74)
+LUT__9317|out                                                                                                                           EFX_LUT4      0.000             1.525               2        (228,74)
+n4952                                                                                                                                   net           0.218             1.743               2        (228,74)
+   Routing elements:
+      Manhattan distance of X:6, Y:5
+LUT__9320|in[1]                                                                                                                         EFX_LUT4      0.054             1.797               2        (234,79)
+LUT__9320|out                                                                                                                           EFX_LUT4      0.000             1.797               3        (234,79)
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/frontend.i32[2]                                               net           0.161             1.958               3        (234,79)
+   Routing elements:
+      Manhattan distance of X:7, Y:0
+LUT__9335|in[0]                                                                                                                         EFX_LUT4      0.055             2.013               3        (241,79)
+LUT__9335|out                                                                                                                           EFX_LUT4      0.000             2.013              13        (241,79)
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_control_inst/n7730                                        net           0.322             2.335              13        (241,79)
+   Routing elements:
+      Manhattan distance of X:1, Y:5
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/ctrl.csr_addr[8]~FF|CE                                        EFX_FF        0.091             2.426              13        (240,74)
+
+Capture Clock Path
+                                              name                                                 model name   delay (ns)  cumulative delay (ns) pins on net    location
+===========================================================================================================================================================================
+io_systemClk                                                                                         input        0.000             0.000                0      (467,482)
+io_systemClk                                                                                         input        0.110             0.110             2563      (467,482)
+io_systemClk                                                                                         net          2.045             2.155             2563      (467,482)
+   Routing elements:
+      Manhattan distance of X:227, Y:408
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/ctrl.csr_addr[8]~FF|CLK    EFX_FF       0.000             2.155             2563      (240,74) 
+
+---------- Path Details for Max Critical Paths (end) ---------------
+
+---------- 4. Path Details for Min Critical Paths (begin) ----------
+
+################################################################################
+Path Detail Report (io_systemClk vs io_systemClk)
+################################################################################
+
+
+++++ Path 1 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Path Begin    : u_neorv32/neorv32_top_inst/core_req[0].data[25]~FF|CLK                                                                   
+Path End      : u_neorv32/neorv32_top_inst/memory_system.dmem_enabled.dmem_inst/dmem_ram_gen[3].dmem_ram/memory_large.spram__D$2|WDATA[1]
+Launch Clock  : io_systemClk (RISE)                                                                                                      
+Capture Clock : io_systemClk (RISE)                                                                                                      
+Slack         : 0.023 (arrival time - required time)                                                                                     
+Delay         : 0.139                                                                                                                    
+
+Logic Level             : 0
+Non-global nets on path : 1
+Global nets on path     : 0
+
+Launch Clock Path Delay        : 1.384
++ Clock To Q + Data Path Delay : 0.093
+--------------------------------------
+End-of-path arrival time       : 1.477
+
+Constraint                     : 0.000
++ Capture Clock Path Delay     : 1.384
++ Clock Uncertainty            : 0.070
+--------------------------------------
+End-of-path required time      : 1.454
+
+Launch Clock Path
+                         name                           model name   delay (ns)  cumulative delay (ns) pins on net    location
+================================================================================================================================
+io_systemClk                                              input        0.000             0.000                0      (467,482)
+io_systemClk                                              input        0.070             0.070             2563      (467,482)
+io_systemClk                                              net          1.314             1.384             2563      (467,482)
+   Routing elements:
+      Manhattan distance of X:211, Y:438
+u_neorv32/neorv32_top_inst/core_req[0].data[25]~FF|CLK    EFX_FF       0.000             1.384             2563      (256,44) 
+
+Data Path
+                                                          name                                                             model name   delay (ns)  cumulative delay (ns) pins on net    location
+===================================================================================================================================================================================================
+u_neorv32/neorv32_top_inst/core_req[0].data[25]~FF|Q                                                                       EFX_FF          0.072            0.072              4         (256,44)
+u_neorv32/neorv32_top_inst/core_req[0].data[25]                                                                            net             0.139            0.211              4         (256,44)
+   Routing elements:
+      Manhattan distance of X:3, Y:1
+u_neorv32/neorv32_top_inst/memory_system.dmem_enabled.dmem_inst/dmem_ram_gen[3].dmem_ram/memory_large.spram__D$2|WDATA[1]  EFX_RAM10      -0.118            0.093              4         (253,43)
+
+Capture Clock Path
+                                                        name                                                           model name   delay (ns)  cumulative delay (ns) pins on net    location
+===============================================================================================================================================================================================
+io_systemClk                                                                                                           input          0.000             0.000                0      (467,482)
+io_systemClk                                                                                                           input          0.070             0.070             2563      (467,482)
+io_systemClk                                                                                                           net            1.314             1.384             2563      (467,482)
+   Routing elements:
+      Manhattan distance of X:214, Y:439
+u_neorv32/neorv32_top_inst/memory_system.dmem_enabled.dmem_inst/dmem_ram_gen[3].dmem_ram/memory_large.spram__D$2|WCLK  EFX_RAM10      0.000             1.384             2563      (253,43) 
+
+++++ Path 2 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Path Begin    : u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_alu_inst/cpu_alu_muldiv_enabled.cpu_alu_muldiv_inst/div_rem[27]~FF|CLK
+Path End      : u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_alu_inst/cpu_alu_muldiv_enabled.cpu_alu_muldiv_inst/div_rem[28]~FF|D  
+Launch Clock  : io_systemClk (RISE)                                                                                                                                 
+Capture Clock : io_systemClk (RISE)                                                                                                                                 
+Slack         : 0.038 (arrival time - required time)                                                                                                                
+Delay         : 0.093                                                                                                                                               
+
+Logic Level             : 1
+Non-global nets on path : 2
+Global nets on path     : 0
+
+Launch Clock Path Delay        : 1.334
++ Clock To Q + Data Path Delay : 0.158
+--------------------------------------
+End-of-path arrival time       : 1.492
+
+Constraint                     : 0.000
++ Capture Clock Path Delay     : 1.384
++ Clock Uncertainty            : 0.070
+--------------------------------------
+End-of-path required time      : 1.454
+
+Launch Clock Path
+                                                                        name                                                                          model name   delay (ns)  cumulative delay (ns) pins on net    location
+==============================================================================================================================================================================================================================
+io_systemClk                                                                                                                                            input        0.000             0.000                0      (467,482)
+io_systemClk                                                                                                                                            input        0.070             0.070             2563      (467,482)
+io_systemClk                                                                                                                                            net          1.264             1.334             2563      (467,482)
+   Routing elements:
+      Manhattan distance of X:184, Y:337
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_alu_inst/cpu_alu_muldiv_enabled.cpu_alu_muldiv_inst/div_rem[27]~FF|CLK    EFX_FF       0.000             1.334             2563      (283,145)
+
+Data Path
+                                                                       name                                                                         model name   delay (ns)  cumulative delay (ns) pins on net    location
+============================================================================================================================================================================================================================
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_alu_inst/cpu_alu_muldiv_enabled.cpu_alu_muldiv_inst/div_rem[27]~FF|Q   EFX_FF         0.072            0.072              5        (283,145)
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_alu_inst/cpu_alu_muldiv_enabled.cpu_alu_muldiv_inst/div_rem[27]        net            0.059            0.131              5        (283,145)
+   Routing elements:
+      Manhattan distance of X:1, Y:0
+LUT__12601|in[1]                                                                                                                                     EFX_LUT4       0.034            0.165              5        (284,145)
+LUT__12601|out                                                                                                                                       EFX_LUT4       0.000            0.165              2        (284,145)
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_alu_inst/cpu_alu_muldiv_enabled.cpu_alu_muldiv_inst/n641               net            0.000            0.165              2        (284,145)
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_alu_inst/cpu_alu_muldiv_enabled.cpu_alu_muldiv_inst/div_rem[28]~FF|D   EFX_FF        -0.007            0.158              2        (284,145)
+
+Capture Clock Path
+                                                                        name                                                                          model name   delay (ns)  cumulative delay (ns) pins on net    location
+==============================================================================================================================================================================================================================
+io_systemClk                                                                                                                                            input        0.000             0.000                0      (467,482)
+io_systemClk                                                                                                                                            input        0.070             0.070             2563      (467,482)
+io_systemClk                                                                                                                                            net          1.314             1.384             2563      (467,482)
+   Routing elements:
+      Manhattan distance of X:183, Y:337
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_alu_inst/cpu_alu_muldiv_enabled.cpu_alu_muldiv_inst/div_rem[28]~FF|CLK    EFX_FF       0.000             1.384             2563      (284,145)
+
+++++ Path 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Path Begin    : u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_frontend_inst/fetch.state[1]~FF|CLK
+Path End      : u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_frontend_inst/fetch.addr[1]~FF|D   
+Launch Clock  : io_systemClk (RISE)                                                                                              
+Capture Clock : io_systemClk (RISE)                                                                                              
+Slack         : 0.041 (arrival time - required time)                                                                             
+Delay         : 0.125                                                                                                            
+
+Logic Level             : 1
+Non-global nets on path : 2
+Global nets on path     : 0
+
+Launch Clock Path Delay        : 1.334
++ Clock To Q + Data Path Delay : 0.190
+--------------------------------------
+End-of-path arrival time       : 1.524
+
+Constraint                     : 0.000
++ Capture Clock Path Delay     : 1.413
++ Clock Uncertainty            : 0.070
+--------------------------------------
+End-of-path required time      : 1.483
+
+Launch Clock Path
+                                                      name                                                         model name   delay (ns)  cumulative delay (ns) pins on net    location
+===========================================================================================================================================================================================
+io_systemClk                                                                                                         input        0.000             0.000                0      (467,482)
+io_systemClk                                                                                                         input        0.070             0.070             2563      (467,482)
+io_systemClk                                                                                                         net          1.264             1.334             2563      (467,482)
+   Routing elements:
+      Manhattan distance of X:226, Y:422
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_frontend_inst/fetch.state[1]~FF|CLK    EFX_FF       0.000             1.334             2563      (241,60) 
+
+Data Path
+                                                     name                                                        model name   delay (ns)  cumulative delay (ns) pins on net    location
+=========================================================================================================================================================================================
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_frontend_inst/fetch.state[1]~FF|Q   EFX_FF         0.072            0.072              39        (241,60)
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_frontend_inst/fetch.state[1]        net            0.091            0.163              39        (241,60)
+   Routing elements:
+      Manhattan distance of X:5, Y:0
+LUT__12924|in[0]                                                                                                  EFX_LUT4       0.034            0.197              39        (246,60)
+LUT__12924|out                                                                                                    EFX_LUT4       0.000            0.197               2        (246,60)
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_frontend_inst/n119                  net            0.000            0.197               2        (246,60)
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_frontend_inst/fetch.addr[1]~FF|D    EFX_FF        -0.007            0.190               2        (246,60)
+
+Capture Clock Path
+                                                      name                                                        model name   delay (ns)  cumulative delay (ns) pins on net    location
+==========================================================================================================================================================================================
+io_systemClk                                                                                                        input        0.000             0.000                0      (467,482)
+io_systemClk                                                                                                        input        0.070             0.070             2563      (467,482)
+io_systemClk                                                                                                        net          1.343             1.413             2563      (467,482)
+   Routing elements:
+      Manhattan distance of X:221, Y:422
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_frontend_inst/fetch.addr[1]~FF|CLK    EFX_FF       0.000             1.413             2563      (246,60) 
+
+++++ Path 4 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Path Begin    : u_neorv32/neorv32_top_inst/mtime[29]~FF|CLK                                                         
+Path End      : u_neorv32/neorv32_top_inst/io_system.clint_enabled.clint_inst/neorv32_clint_mtime_inst/carry[0]~FF|D
+Launch Clock  : io_systemClk (RISE)                                                                                 
+Capture Clock : io_systemClk (RISE)                                                                                 
+Slack         : 0.044 (arrival time - required time)                                                                
+Delay         : 0.188                                                                                               
+
+Logic Level             : 4
+Non-global nets on path : 5
+Global nets on path     : 0
+
+Launch Clock Path Delay        : 1.334
++ Clock To Q + Data Path Delay : 0.241
+--------------------------------------
+End-of-path arrival time       : 1.575
+
+Constraint                     : 0.000
++ Capture Clock Path Delay     : 1.461
++ Clock Uncertainty            : 0.070
+--------------------------------------
+End-of-path required time      : 1.531
+
+Launch Clock Path
+                   name                      model name   delay (ns)  cumulative delay (ns) pins on net    location
+=====================================================================================================================
+io_systemClk                                   input        0.000             0.000                0      (467,482)
+io_systemClk                                   input        0.070             0.070             2563      (467,482)
+io_systemClk                                   net          1.264             1.334             2563      (467,482)
+   Routing elements:
+      Manhattan distance of X:193, Y:441
+u_neorv32/neorv32_top_inst/mtime[29]~FF|CLK    EFX_FF       0.000             1.334             2563      (274,41) 
+
+Data Path
+                                                      name                                                        model name   delay (ns)  cumulative delay (ns) pins on net    location
+==========================================================================================================================================================================================
+u_neorv32/neorv32_top_inst/mtime[29]~FF|Q                                                                          EFX_FF         0.072            0.072              6         (274,41)
+u_neorv32/neorv32_top_inst/mtime[29]                                                                               net            0.079            0.151              6         (274,41)
+   Routing elements:
+      Manhattan distance of X:1, Y:0
+u_neorv32/neorv32_top_inst/io_system.clint_enabled.clint_inst/neorv32_clint_mtime_inst/add_72/i30|I0               EFX_ADD        0.029            0.180              6         (273,41)
+u_neorv32/neorv32_top_inst/io_system.clint_enabled.clint_inst/neorv32_clint_mtime_inst/add_72/i30|CO               EFX_ADD        0.000            0.180              2         (273,41)
+u_neorv32/neorv32_top_inst/io_system.clint_enabled.clint_inst/neorv32_clint_mtime_inst/add_72/n60                  net            0.000            0.180              2         (273,41)
+   Routing elements:
+      Manhattan distance of X:0, Y:1
+u_neorv32/neorv32_top_inst/io_system.clint_enabled.clint_inst/neorv32_clint_mtime_inst/add_72/i31|CI               EFX_ADD        0.013            0.193              2         (273,42)
+u_neorv32/neorv32_top_inst/io_system.clint_enabled.clint_inst/neorv32_clint_mtime_inst/add_72/i31|CO               EFX_ADD        0.000            0.193              2         (273,42)
+u_neorv32/neorv32_top_inst/io_system.clint_enabled.clint_inst/neorv32_clint_mtime_inst/add_72/n62                  net            0.000            0.193              2         (273,42)
+   Routing elements:
+      Manhattan distance of X:0, Y:1
+u_neorv32/neorv32_top_inst/io_system.clint_enabled.clint_inst/neorv32_clint_mtime_inst/add_72/i32|CI               EFX_ADD        0.013            0.206              2         (273,43)
+u_neorv32/neorv32_top_inst/io_system.clint_enabled.clint_inst/neorv32_clint_mtime_inst/add_72/i32|CO               EFX_ADD        0.000            0.206              2         (273,43)
+n8192                                                                                                              net            0.000            0.206              2         (273,43)
+   Routing elements:
+      Manhattan distance of X:0, Y:1
+u_neorv32/neorv32_top_inst/io_system.clint_enabled.clint_inst/neorv32_clint_mtime_inst/add_72/i32__AUX_ADD_CO|CI   EFX_ADD        0.054            0.260              2         (273,44)
+u_neorv32/neorv32_top_inst/io_system.clint_enabled.clint_inst/neorv32_clint_mtime_inst/add_72/i32__AUX_ADD_CO|O    EFX_ADD        0.000            0.260              2         (273,44)
+u_neorv32/neorv32_top_inst/io_system.clint_enabled.clint_inst/neorv32_clint_mtime_inst/inc_lo[32]                  net            0.000            0.260              2         (273,44)
+u_neorv32/neorv32_top_inst/io_system.clint_enabled.clint_inst/neorv32_clint_mtime_inst/carry[0]~FF|D               EFX_FF        -0.019            0.241              2         (273,44)
+
+Capture Clock Path
+                                                 name                                                   model name   delay (ns)  cumulative delay (ns) pins on net    location
+================================================================================================================================================================================
+io_systemClk                                                                                              input        0.000             0.000                0      (467,482)
+io_systemClk                                                                                              input        0.070             0.070             2563      (467,482)
+io_systemClk                                                                                              net          1.391             1.461             2563      (467,482)
+   Routing elements:
+      Manhattan distance of X:194, Y:438
+u_neorv32/neorv32_top_inst/io_system.clint_enabled.clint_inst/neorv32_clint_mtime_inst/carry[0]~FF|CLK    EFX_FF       0.000             1.461             2563      (273,44) 
+
+++++ Path 5 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Path Begin    : u_neorv32/neorv32_top_inst/core_req[0].data[5]~FF|CLK                                                                                    
+Path End      : u_neorv32/neorv32_top_inst/memory_system.imem_enabled.imem_inst/imem_ram.imem_ram_gen[0].imem_ram_inst/memory_large.spram__D$b12|WDATA[1]
+Launch Clock  : io_systemClk (RISE)                                                                                                                      
+Capture Clock : io_systemClk (RISE)                                                                                                                      
+Slack         : 0.053 (arrival time - required time)                                                                                                     
+Delay         : 0.237                                                                                                                                    
+
+Logic Level             : 0
+Non-global nets on path : 1
+Global nets on path     : 0
+
+Launch Clock Path Delay        : 1.407
++ Clock To Q + Data Path Delay : 0.179
+--------------------------------------
+End-of-path arrival time       : 1.586
+
+Constraint                     : 0.000
++ Capture Clock Path Delay     : 1.463
++ Clock Uncertainty            : 0.070
+--------------------------------------
+End-of-path required time      : 1.533
+
+Launch Clock Path
+                        name                           model name   delay (ns)  cumulative delay (ns) pins on net    location
+===============================================================================================================================
+io_systemClk                                             input        0.000             0.000                0      (467,482)
+io_systemClk                                             input        0.070             0.070             2563      (467,482)
+io_systemClk                                             net          1.337             1.407             2563      (467,482)
+   Routing elements:
+      Manhattan distance of X:234, Y:438
+u_neorv32/neorv32_top_inst/core_req[0].data[5]~FF|CLK    EFX_FF       0.000             1.407             2563      (233,44) 
+
+Data Path
+                                                                  name                                                                     model name   delay (ns)  cumulative delay (ns) pins on net    location
+===================================================================================================================================================================================================================
+u_neorv32/neorv32_top_inst/core_req[0].data[5]~FF|Q                                                                                        EFX_FF          0.072            0.072              4         (233,44)
+u_neorv32/neorv32_top_inst/core_req[0].data[5]                                                                                             net             0.237            0.309              4         (233,44)
+   Routing elements:
+      Manhattan distance of X:28, Y:1
+u_neorv32/neorv32_top_inst/memory_system.imem_enabled.imem_inst/imem_ram.imem_ram_gen[0].imem_ram_inst/memory_large.spram__D$b12|WDATA[1]  EFX_RAM10      -0.130            0.179              4         (205,43)
+
+Capture Clock Path
+                                                                name                                                                   model name   delay (ns)  cumulative delay (ns) pins on net    location
+===============================================================================================================================================================================================================
+io_systemClk                                                                                                                           input          0.000             0.000                0      (467,482)
+io_systemClk                                                                                                                           input          0.070             0.070             2563      (467,482)
+io_systemClk                                                                                                                           net            1.393             1.463             2563      (467,482)
+   Routing elements:
+      Manhattan distance of X:262, Y:439
+u_neorv32/neorv32_top_inst/memory_system.imem_enabled.imem_inst/imem_ram.imem_ram_gen[0].imem_ram_inst/memory_large.spram__D$b12|WCLK  EFX_RAM10      0.000             1.463             2563      (205,43) 
+
+++++ Path 6 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Path Begin    : u_neorv32/neorv32_top_inst/core_req[0].data[2]~FF|CLK                                                                    
+Path End      : u_neorv32/neorv32_top_inst/memory_system.dmem_enabled.dmem_inst/dmem_ram_gen[0].dmem_ram/memory_large.spram__D$2|WDATA[2]
+Launch Clock  : io_systemClk (RISE)                                                                                                      
+Capture Clock : io_systemClk (RISE)                                                                                                      
+Slack         : 0.053 (arrival time - required time)                                                                                     
+Delay         : 0.376                                                                                                                    
+
+Logic Level             : 0
+Non-global nets on path : 1
+Global nets on path     : 0
+
+Launch Clock Path Delay        : 1.413
++ Clock To Q + Data Path Delay : 0.299
+--------------------------------------
+End-of-path arrival time       : 1.712
+
+Constraint                     : 0.000
++ Capture Clock Path Delay     : 1.589
++ Clock Uncertainty            : 0.070
+--------------------------------------
+End-of-path required time      : 1.659
+
+Launch Clock Path
+                        name                           model name   delay (ns)  cumulative delay (ns) pins on net    location
+===============================================================================================================================
+io_systemClk                                             input        0.000             0.000                0      (467,482)
+io_systemClk                                             input        0.070             0.070             2563      (467,482)
+io_systemClk                                             net          1.343             1.413             2563      (467,482)
+   Routing elements:
+      Manhattan distance of X:225, Y:412
+u_neorv32/neorv32_top_inst/core_req[0].data[2]~FF|CLK    EFX_FF       0.000             1.413             2563      (242,70) 
+
+Data Path
+                                                          name                                                             model name   delay (ns)  cumulative delay (ns) pins on net    location
+===================================================================================================================================================================================================
+u_neorv32/neorv32_top_inst/core_req[0].data[2]~FF|Q                                                                        EFX_FF          0.072            0.072              4         (242,70)
+u_neorv32/neorv32_top_inst/core_req[0].data[2]                                                                             net             0.376            0.448              4         (242,70)
+   Routing elements:
+      Manhattan distance of X:22, Y:47
+u_neorv32/neorv32_top_inst/memory_system.dmem_enabled.dmem_inst/dmem_ram_gen[0].dmem_ram/memory_large.spram__D$2|WDATA[2]  EFX_RAM10      -0.149            0.299              4         (220,23)
+
+Capture Clock Path
+                                                        name                                                           model name   delay (ns)  cumulative delay (ns) pins on net    location
+===============================================================================================================================================================================================
+io_systemClk                                                                                                           input          0.000             0.000                0      (467,482)
+io_systemClk                                                                                                           input          0.070             0.070             2563      (467,482)
+io_systemClk                                                                                                           net            1.519             1.589             2563      (467,482)
+   Routing elements:
+      Manhattan distance of X:247, Y:459
+u_neorv32/neorv32_top_inst/memory_system.dmem_enabled.dmem_inst/dmem_ram_gen[0].dmem_ram/memory_large.spram__D$2|WCLK  EFX_RAM10      0.000             1.589             2563      (220,23) 
+
+++++ Path 7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Path Begin    : u_neorv32/neorv32_top_inst/core_req[0].data[31]~FF|CLK                                                                   
+Path End      : u_neorv32/neorv32_top_inst/memory_system.dmem_enabled.dmem_inst/dmem_ram_gen[3].dmem_ram/memory_large.spram__D$1|WDATA[3]
+Launch Clock  : io_systemClk (RISE)                                                                                                      
+Capture Clock : io_systemClk (RISE)                                                                                                      
+Slack         : 0.054 (arrival time - required time)                                                                                     
+Delay         : 0.220                                                                                                                    
+
+Logic Level             : 0
+Non-global nets on path : 1
+Global nets on path     : 0
+
+Launch Clock Path Delay        : 1.334
++ Clock To Q + Data Path Delay : 0.174
+--------------------------------------
+End-of-path arrival time       : 1.508
+
+Constraint                     : 0.000
++ Capture Clock Path Delay     : 1.384
++ Clock Uncertainty            : 0.070
+--------------------------------------
+End-of-path required time      : 1.454
+
+Launch Clock Path
+                         name                           model name   delay (ns)  cumulative delay (ns) pins on net    location
+================================================================================================================================
+io_systemClk                                              input        0.000             0.000                0      (467,482)
+io_systemClk                                              input        0.070             0.070             2563      (467,482)
+io_systemClk                                              net          1.264             1.334             2563      (467,482)
+   Routing elements:
+      Manhattan distance of X:209, Y:436
+u_neorv32/neorv32_top_inst/core_req[0].data[31]~FF|CLK    EFX_FF       0.000             1.334             2563      (258,46) 
+
+Data Path
+                                                          name                                                             model name   delay (ns)  cumulative delay (ns) pins on net    location
+===================================================================================================================================================================================================
+u_neorv32/neorv32_top_inst/core_req[0].data[31]~FF|Q                                                                       EFX_FF          0.072            0.072              4         (258,46)
+u_neorv32/neorv32_top_inst/core_req[0].data[31]                                                                            net             0.220            0.292              4         (258,46)
+   Routing elements:
+      Manhattan distance of X:14, Y:3
+u_neorv32/neorv32_top_inst/memory_system.dmem_enabled.dmem_inst/dmem_ram_gen[3].dmem_ram/memory_large.spram__D$1|WDATA[3]  EFX_RAM10      -0.118            0.174              4         (244,43)
+
+Capture Clock Path
+                                                        name                                                           model name   delay (ns)  cumulative delay (ns) pins on net    location
+===============================================================================================================================================================================================
+io_systemClk                                                                                                           input          0.000             0.000                0      (467,482)
+io_systemClk                                                                                                           input          0.070             0.070             2563      (467,482)
+io_systemClk                                                                                                           net            1.314             1.384             2563      (467,482)
+   Routing elements:
+      Manhattan distance of X:223, Y:439
+u_neorv32/neorv32_top_inst/memory_system.dmem_enabled.dmem_inst/dmem_ram_gen[3].dmem_ram/memory_large.spram__D$1|WCLK  EFX_RAM10      0.000             1.384             2563      (244,43) 
+
+++++ Path 8 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Path Begin    : u_neorv32/neorv32_top_inst/core_req[0].data[20]~FF|CLK                                                                                   
+Path End      : u_neorv32/neorv32_top_inst/memory_system.imem_enabled.imem_inst/imem_ram.imem_ram_gen[2].imem_ram_inst/memory_large.spram__D$b12|WDATA[0]
+Launch Clock  : io_systemClk (RISE)                                                                                                                      
+Capture Clock : io_systemClk (RISE)                                                                                                                      
+Slack         : 0.059 (arrival time - required time)                                                                                                     
+Delay         : 0.316                                                                                                                                    
+
+Logic Level             : 0
+Non-global nets on path : 1
+Global nets on path     : 0
+
+Launch Clock Path Delay        : 1.334
++ Clock To Q + Data Path Delay : 0.258
+--------------------------------------
+End-of-path arrival time       : 1.592
+
+Constraint                     : 0.000
++ Capture Clock Path Delay     : 1.463
++ Clock Uncertainty            : 0.070
+--------------------------------------
+End-of-path required time      : 1.533
+
+Launch Clock Path
+                         name                           model name   delay (ns)  cumulative delay (ns) pins on net    location
+================================================================================================================================
+io_systemClk                                              input        0.000             0.000                0      (467,482)
+io_systemClk                                              input        0.070             0.070             2563      (467,482)
+io_systemClk                                              net          1.264             1.334             2563      (467,482)
+   Routing elements:
+      Manhattan distance of X:222, Y:390
+u_neorv32/neorv32_top_inst/core_req[0].data[20]~FF|CLK    EFX_FF       0.000             1.334             2563      (245,92) 
+
+Data Path
+                                                                  name                                                                     model name   delay (ns)  cumulative delay (ns) pins on net    location
+===================================================================================================================================================================================================================
+u_neorv32/neorv32_top_inst/core_req[0].data[20]~FF|Q                                                                                       EFX_FF          0.072            0.072              4         (245,92)
+u_neorv32/neorv32_top_inst/core_req[0].data[20]                                                                                            net             0.316            0.388              4         (245,92)
+   Routing elements:
+      Manhattan distance of X:25, Y:29
+u_neorv32/neorv32_top_inst/memory_system.imem_enabled.imem_inst/imem_ram.imem_ram_gen[2].imem_ram_inst/memory_large.spram__D$b12|WDATA[0]  EFX_RAM10      -0.130            0.258              4         (220,63)
+
+Capture Clock Path
+                                                                name                                                                   model name   delay (ns)  cumulative delay (ns) pins on net    location
+===============================================================================================================================================================================================================
+io_systemClk                                                                                                                           input          0.000             0.000                0      (467,482)
+io_systemClk                                                                                                                           input          0.070             0.070             2563      (467,482)
+io_systemClk                                                                                                                           net            1.393             1.463             2563      (467,482)
+   Routing elements:
+      Manhattan distance of X:247, Y:419
+u_neorv32/neorv32_top_inst/memory_system.imem_enabled.imem_inst/imem_ram.imem_ram_gen[2].imem_ram_inst/memory_large.spram__D$b12|WCLK  EFX_RAM10      0.000             1.463             2563      (220,63) 
+
+++++ Path 9 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Path Begin    : u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_frontend_inst/prefetch_buffer[0].ipb_inst/i71/memory_large.memory_large_async_read.fifo[0][3]~FF|CLK
+Path End      : u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/ctrl.ir_rvc[3]~FF|D                                                                                     
+Launch Clock  : io_systemClk (RISE)                                                                                                                                                               
+Capture Clock : io_systemClk (RISE)                                                                                                                                                               
+Slack         : 0.062 (arrival time - required time)                                                                                                                                              
+Delay         : 0.280                                                                                                                                                                             
+
+Logic Level             : 2
+Non-global nets on path : 3
+Global nets on path     : 0
+
+Launch Clock Path Delay        : 1.407
++ Clock To Q + Data Path Delay : 0.314
+--------------------------------------
+End-of-path arrival time       : 1.721
+
+Constraint                     : 0.000
++ Capture Clock Path Delay     : 1.589
++ Clock Uncertainty            : 0.070
+--------------------------------------
+End-of-path required time      : 1.659
+
+Launch Clock Path
+                                                                                       name                                                                                         model name   delay (ns)  cumulative delay (ns) pins on net    location
+============================================================================================================================================================================================================================================================
+io_systemClk                                                                                                                                                                          input        0.000             0.000                0      (467,482)
+io_systemClk                                                                                                                                                                          input        0.070             0.070             2563      (467,482)
+io_systemClk                                                                                                                                                                          net          1.337             1.407             2563      (467,482)
+   Routing elements:
+      Manhattan distance of X:243, Y:431
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_frontend_inst/prefetch_buffer[0].ipb_inst/i71/memory_large.memory_large_async_read.fifo[0][3]~FF|CLK    EFX_FF       0.000             1.407             2563      (224,51) 
+
+Data Path
+                                                                                      name                                                                                        model name   delay (ns)  cumulative delay (ns) pins on net    location
+==========================================================================================================================================================================================================================================================
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_frontend_inst/prefetch_buffer[0].ipb_inst/i71/memory_large.memory_large_async_read.fifo[0][3]~FF|Q   EFX_FF         0.072            0.072              2         (224,51)
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/cpu_frontend_inst/prefetch_buffer[0].ipb_inst/i71/memory_large.memory_large_async_read.fifo[0][3]        net            0.126            0.198              2         (224,51)
+   Routing elements:
+      Manhattan distance of X:0, Y:8
+LUT__9300|in[0]                                                                                                                                                                    EFX_LUT4       0.034            0.232              2         (224,59)
+LUT__9300|out                                                                                                                                                                      EFX_LUT4       0.000            0.232              3         (224,59)
+n4938                                                                                                                                                                              net            0.086            0.318              3         (224,59)
+   Routing elements:
+      Manhattan distance of X:0, Y:8
+LUT__9301|in[0]                                                                                                                                                                    EFX_LUT4       0.034            0.352              3         (224,67)
+LUT__9301|out                                                                                                                                                                      EFX_LUT4       0.000            0.352              9         (224,67)
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/frontend.i16[3]                                                                                          net            0.000            0.352              9         (224,67)
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/ctrl.ir_rvc[3]~FF|D                                                                                      EFX_FF        -0.038            0.314              9         (224,67)
+
+Capture Clock Path
+                                             name                                                model name   delay (ns)  cumulative delay (ns) pins on net    location
+=========================================================================================================================================================================
+io_systemClk                                                                                       input        0.000             0.000                0      (467,482)
+io_systemClk                                                                                       input        0.070             0.070             2563      (467,482)
+io_systemClk                                                                                       net          1.519             1.589             2563      (467,482)
+   Routing elements:
+      Manhattan distance of X:243, Y:415
+u_neorv32/neorv32_top_inst/core_complex_gen[0].core_complex_inst/cpu_inst/ctrl.ir_rvc[3]~FF|CLK    EFX_FF       0.000             1.589             2563      (224,67) 
+
+++++ Path 10 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Path Begin    : u_neorv32/neorv32_top_inst/io_system.uart0_enabled.uart0_inst/tx.sreg[6]~FF|CLK
+Path End      : u_neorv32/neorv32_top_inst/io_system.uart0_enabled.uart0_inst/tx.sreg[5]~FF|D  
+Launch Clock  : io_systemClk (RISE)                                                            
+Capture Clock : io_systemClk (RISE)                                                            
+Slack         : 0.066 (arrival time - required time)                                           
+Delay         : 0.093                                                                          
+
+Logic Level             : 1
+Non-global nets on path : 2
+Global nets on path     : 0
+
+Launch Clock Path Delay        : 1.384
++ Clock To Q + Data Path Delay : 0.158
+--------------------------------------
+End-of-path arrival time       : 1.542
+
+Constraint                     : 0.000
++ Capture Clock Path Delay     : 1.406
++ Clock Uncertainty            : 0.070
+--------------------------------------
+End-of-path required time      : 1.476
+
+Launch Clock Path
+                                     name                                        model name   delay (ns)  cumulative delay (ns) pins on net    location
+=========================================================================================================================================================
+io_systemClk                                                                       input        0.000             0.000                0      (467,482)
+io_systemClk                                                                       input        0.070             0.070             2563      (467,482)
+io_systemClk                                                                       net          1.314             1.384             2563      (467,482)
+   Routing elements:
+      Manhattan distance of X:211, Y:476
+u_neorv32/neorv32_top_inst/io_system.uart0_enabled.uart0_inst/tx.sreg[6]~FF|CLK    EFX_FF       0.000             1.384             2563      (256,6)  
+
+Data Path
+                                    name                                       model name   delay (ns)  cumulative delay (ns) pins on net    location
+=======================================================================================================================================================
+u_neorv32/neorv32_top_inst/io_system.uart0_enabled.uart0_inst/tx.sreg[6]~FF|Q   EFX_FF         0.072            0.072              2         (256,6)
+u_neorv32/neorv32_top_inst/io_system.uart0_enabled.uart0_inst/tx.sreg[6]        net            0.059            0.131              2         (256,6)
+   Routing elements:
+      Manhattan distance of X:1, Y:0
+LUT__13664|in[1]                                                                EFX_LUT4       0.034            0.165              2         (257,6)
+LUT__13664|out                                                                  EFX_LUT4       0.000            0.165              2         (257,6)
+u_neorv32/neorv32_top_inst/io_system.uart0_enabled.uart0_inst/n801              net            0.000            0.165              2         (257,6)
+u_neorv32/neorv32_top_inst/io_system.uart0_enabled.uart0_inst/tx.sreg[5]~FF|D   EFX_FF        -0.007            0.158              2         (257,6)
+
+Capture Clock Path
+                                     name                                        model name   delay (ns)  cumulative delay (ns) pins on net    location
+=========================================================================================================================================================
+io_systemClk                                                                       input        0.000             0.000                0      (467,482)
+io_systemClk                                                                       input        0.070             0.070             2563      (467,482)
+io_systemClk                                                                       net          1.336             1.406             2563      (467,482)
+   Routing elements:
+      Manhattan distance of X:210, Y:476
+u_neorv32/neorv32_top_inst/io_system.uart0_enabled.uart0_inst/tx.sreg[5]~FF|CLK    EFX_FF       0.000             1.406             2563      (257,6)  
+
+---------- Path Details for Min Critical Paths (end) ---------------
+
